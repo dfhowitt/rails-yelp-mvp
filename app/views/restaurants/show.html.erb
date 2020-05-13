@@ -1,0 +1,15 @@
+<div class="navbar">
+  <%= link_to 'Home', restaurants_path %>
+</div>
+
+<div class="card">
+  <h2><%=@restaurant.name%></h2>
+    <p><%=@restaurant.category.capitalize%></p>
+    <p><%=@restaurant.address%></p>
+    <div class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <div class="list-group-item"><%= review.content %></div>
+      <% end %>
+    </div>
+    <%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+</div>
